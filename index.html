@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All Blog Posts</h1>
+
+{% for post in posts %}
+    <div class="post">
+        <h2>{{ post.title }}</h2>
+        <small>{{ post.date_created.strftime('%Y-%m-%d') }}</small>
+        <p>{{ post.content[:150] }}...</p>
+        <a href="/post/{{ post.id }}">Read More</a>
+        <a href="/delete/{{ post.id }}">Delete</a>
+    </div>
+{% endfor %}
+
+{% endblock %}
